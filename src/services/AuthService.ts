@@ -1,4 +1,4 @@
-
+import { User } from '../model/Model'
 
 export class AuthService {
 
