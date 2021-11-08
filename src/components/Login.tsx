@@ -33,22 +33,32 @@ export class Login extends React.Component<LoginProps, LoginState> {
     private setPassword(event: CustomEvent){
         this.setState({password: event.target.value})
     }
-
+    //Handling Events
     private async handleSubmit(event: SyntheticEvent){
         event.preventDefault();
+        this.setState({loginAttempted: true})
         const result = await this.props.authService.login(
             this.state.userName,
             this.state.password
         )
         if (result) {
-            console.log(result)
+            this.setState({loginSuccesfull: true})
         } else {
-            console.log('wrong login')
+            this.setState({loginSuccesfull: false})
         }
     }
 
 
     render(){
+        //Conditional Rendering
+        let loginMessage: any;
+        if(this.state.loginAttempted){
+            if (this.state.loginSuccesfull) {
+                loginMessage = <label>Login Succesfull</label>
+            } else {
+                loginMessage = <label>Login Failed</label>
+            }
+        }
         return (
             <div>
                 <h2> Please login </h2>
@@ -57,6 +67,7 @@ export class Login extends React.Component<LoginProps, LoginState> {
                     <input value={this.state.password} onChange = {e => this.setPassword(e)} type='password'/><br/>
                     <input type='submit' value="Login" />
                 </form>
+                {loginMessage}
             </div>
         )
     }
