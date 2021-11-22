@@ -16,7 +16,9 @@ const config: Config.InitialOptions = {
     testEnvironment: "jsdom",
     collectCoverage: true,
     collectCoverageFrom: [
-        'src/**/*.{ts,tsx}'
+        'src/**/*.{ts,tsx}',
+        '!src/services/**', //Not collect coverage from this folder(!)
+        '!src/react-app-env.d.ts' //Not collect coverage from this folder(!)
     ]
 }
 
