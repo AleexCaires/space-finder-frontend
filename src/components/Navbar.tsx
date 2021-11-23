@@ -18,8 +18,8 @@ export class Navbar extends React.Component<{
             <div className="navbar">
                 <Link to="/">Home</Link>
                 <Link to="/profile">Profile</Link>
-                {loginLogOut}
                 <Link to="/spaces">Spaces</Link>
+                {loginLogOut}
             </div>
         )
     }
