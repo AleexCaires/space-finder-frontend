@@ -15,9 +15,9 @@ export class ConfirmModalComponent extends Component<ConfirmModalComponentProps>
         } else {
             return <div className='modal'>
                 <div className='modal-content'>
-                    <h2>You tried to resrve and ...</h2>
+                    <h2>You tried to reserve and ...</h2>
                     <h3 className='modalText'>{this.props.content}</h3>
-                    <button  onClick={()=> this.props.close()} >Ok, close</button>
+                    <button className='modalButton' onClick={()=> this.props.close()} >Ok, close</button>
                 </div>
             </div>
         }
